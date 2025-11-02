@@ -24,7 +24,16 @@ public class Parent extends Person {
     public Parent(Name name, Phone phone, Address address, Remark remark) {
         super(name, phone, address, Role.PARENT_ROLE, remark);
     }
-
+    /**
+     * Clones a parent with a new remark
+     * @param parent
+     * @param remark
+     */
+    public Parent(Parent parent, Remark remark) {
+        super(parent.name, parent.phone, parent.address, Role.PARENT_ROLE, remark);
+        this.childrenNames.addAll(Set.copyOf(parent.childrenNames));
+        this.children.addAll(Set.copyOf(parent.children));
+    }
     /**
      * Creates dummy Parent object for filtering
      *
