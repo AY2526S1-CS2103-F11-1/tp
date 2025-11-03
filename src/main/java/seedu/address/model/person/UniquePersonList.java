@@ -107,6 +107,9 @@ public class UniquePersonList implements Iterable<Person> {
                     student.setParentName(parent.getName());
                     parent.addChild(student);
                 });
+        if (student.getParent() == null) {
+            throw new PersonNotFoundException(); // If parent was not set, means it doesn't exist
+        }
     }
 
     /**
